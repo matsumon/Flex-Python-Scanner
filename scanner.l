@@ -31,19 +31,19 @@
 }
 
 \( {
-    std::cout<<"LPAREN  "<<yytext<<std::endl;
+    std::cout<<"LPAREN "<<yytext<<std::endl;
 }
 
 \) {
-    std::cout<<"RPAREN  "<<yytext<<std::endl;
+    std::cout<<"RPAREN "<<yytext<<std::endl;
 }
 
 , {
-    std::cout<<"COMMA   "<<yytext<<std::endl;
+    std::cout<<"COMMA "<<yytext<<std::endl;
 }
 
 : {
-    std::cout<<"COLON   "<<yytext<<std::endl;
+    std::cout<<"COLON "<<yytext<<std::endl;
 }
 
 "\n"? {
@@ -51,31 +51,31 @@
 }
 
 and|break|def|elif|else|for|if|not|or|return|while {
-    std::cout<<string_to_upper(yytext)<<"   "<<yytext<<std::endl;
+    std::cout<<string_to_upper(yytext)<<" "<<yytext<<std::endl;
 }
 
 = {
-    std::cout<<"ASSIGN  "<<yytext<<std::endl;
+    std::cout<<"ASSIGN "<<yytext<<std::endl;
 }
 
 \+ {
-    std::cout<<"PLUS    "<<yytext<<std::endl;
+    std::cout<<"PLUS "<<yytext<<std::endl;
 }
 
 - {
-    std::cout<<"MINUS   "<<yytext<<std::endl;
+    std::cout<<"MINUS "<<yytext<<std::endl;
 }
 
 \* {
-    std::cout<<"TIMES   "<<yytext<<std::endl;
+    std::cout<<"TIMES "<<yytext<<std::endl;
 }
 
 \/ {
-    std::cout<<"DIVIDEDBY   "<<yytext<<std::endl;
+    std::cout<<"DIVIDEDBY "<<yytext<<std::endl;
 }
 
 == {
-    std::cout<<"EQ  "<<yytext<<std::endl;
+    std::cout<<"EQ "<<yytext<<std::endl;
 }
 
 != {
@@ -83,7 +83,7 @@ and|break|def|elif|else|for|if|not|or|return|while {
 }
 
 > {
-    std::cout<<"GT  "<<yytext<<std::endl;
+    std::cout<<"GT "<<yytext<<std::endl;
 }
 
 >= {
@@ -91,7 +91,7 @@ and|break|def|elif|else|for|if|not|or|return|while {
 }
 
 \< {
-    std::cout<<"LT  "<<yytext<<std::endl;
+    std::cout<<"LT "<<yytext<<std::endl;
 }
 
 \<= {
@@ -99,19 +99,19 @@ and|break|def|elif|else|for|if|not|or|return|while {
 }
 
 True {
-    std::cout<<"True    "<<1<<std::endl;
+    std::cout<<"True "<<1<<std::endl;
 }
 
 False {
-    std::cout<<"False   "<<0<<std::endl;
+    std::cout<<"False "<<0<<std::endl;
 }
 
 ([a-z]|[A-Z]|_)([a-z]|[A-Z]|[0-9]|_)* {
-    std::cout<<"IDENTIFIER  "<<yytext<<std::endl;
+    std::cout<<"IDENTIFIER "<<yytext<<std::endl;
 }
 
 [0-9]+\.[0-9]+ {
-    std::cout<<"FLOAT   "<<yytext<<std::endl;
+    std::cout<<"FLOAT "<<yytext<<std::endl;
 }
 
 [0-9]+ {
