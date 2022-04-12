@@ -22,119 +22,119 @@
 }
 
 \( {
-    std::cout<<"LPAREN"<<std::endl;
+    std::cout<<"LPAREN  "<<yytext<<std::endl;
 }
 
 \) {
-    std::cout<<"RPAREN"<<std::endl;
+    std::cout<<"RPAREN  "<<yytext<<std::endl;
 }
 
 , {
-    std::cout<<"COMMA"<<std::endl;
+    std::cout<<"COMMA   "<<yytext<<std::endl;
 }
 
 : {
-    std::cout<<"COLON"<<std::endl;
+    std::cout<<"COLON   "<<yytext<<std::endl;
 }
 
 "\n" {
-    std::cout<<"NEWLINE"<<std::endl;
+    std::cout<<"NEWLINE "<<std::endl;
 }
 
 and {
-    std::cout<<"AND"<<std::endl;
+    std::cout<<"AND "<<yytext<<std::endl;
 }
 
 break {
-    std::cout<<"BREAK"<<std::endl;
+    std::cout<<"BREAK   "<<yytext<<std::endl;
 }
 
 def {
-    std::cout<<"DEF"<<std::endl;
+    std::cout<<"DEF "<<yytext<<std::endl;
 }
 
 elif {
-    std::cout<<"ELIF"<<std::endl;
+    std::cout<<"ELIF    "<<yytext<<std::endl;
 }
 
 else {
-    std::cout<<"ELSE"<<std::endl;
+    std::cout<<"ELSE    "<<yytext<<std::endl;
 }
 
 for {
-    std::cout<<"FOR"<<std::endl;
+    std::cout<<"FOR "<<yytext<<std::endl;
 }
 
 if {
-    std::cout<<"IF"<<std::endl;
+    std::cout<<"IF  "<<yytext<<std::endl;
 }
 
 not {
-    std::cout<<"NOT"<<std::endl;
+    std::cout<<"NOT "<<yytext<<std::endl;
 }
 
 or {
-    std::cout<<"OR"<<std::endl;
+    std::cout<<"OR  "<<yytext<<std::endl;
 }
 
 return {
-    std::cout<<"RETURN"<<std::endl;
+    std::cout<<"RETURN  "<<yytext<<std::endl;
 }
 
 while {
-    std::cout<<"WHILE"<<std::endl;
+    std::cout<<"WHILE   "<<yytext<<std::endl;
 }
 
 = {
-    std::cout<<"ASSIGN"<<std::endl;
+    std::cout<<"ASSIGN  "<<yytext<<std::endl;
 }
 
 \+ {
-    std::cout<<"PLUS"<<std::endl;
+    std::cout<<"PLUS    "<<yytext<<std::endl;
 }
 
 - {
-    std::cout<<"MINUS"<<std::endl;
+    std::cout<<"MINUS   "<<yytext<<std::endl;
 }
 
 \* {
-    std::cout<<"TIMES"<<std::endl;
+    std::cout<<"TIMES   "<<yytext<<std::endl;
 }
 
 \/ {
-    std::cout<<"DIVIDEDBY"<<std::endl;
+    std::cout<<"DIVIDEDBY   "<<yytext<<std::endl;
 }
 
 == {
-    std::cout<<"EQ"<<std::endl;
+    std::cout<<"EQ  "<<yytext<<std::endl;
 }
 
 != {
-    std::cout<<"NEQ"<<std::endl;
+    std::cout<<"NEQ "<<yytext<<std::endl;
 }
 
 > {
-    std::cout<<"GT"<<std::endl;
+    std::cout<<"GT  "<<yytext<<std::endl;
 }
 
 >= {
-    std::cout<<"GTE"<<std::endl;
+    std::cout<<"GTE "<<yytext<<std::endl;
 }
 
 \< {
-    std::cout<<"LT"<<std::endl;
+    std::cout<<"LT  "<<yytext<<std::endl;
 }
 
 \<= {
-    std::cout<<"LTE"<<std::endl;
+    std::cout<<"LTE "<<yytext<<std::endl;
 }
 
 True {
-    std::cout<<"True"<<std::endl;
+    std::cout<<"True    "<<yytext<<std::endl;
 }
 
 False {
-    std::cout<<"False"<<std::endl;
+    std::cout<<"False   "<<yytext<<std::endl;
 }
 
 ([a-z]|[A-Z]|_)([a-z]|[A-Z]|[0-9]|_)* {
