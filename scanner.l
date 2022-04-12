@@ -118,7 +118,7 @@ False {
     std::cout<<"INTEGER "<<atoi(yytext)<<std::endl;
 }
 <<EOF>> {
-    std::cout<<"END OF FILE"<<std::endl;
+    // std::cout<<"END OF FILE"<<std::endl;
     yyterminate();
 }
 
