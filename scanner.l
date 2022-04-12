@@ -19,7 +19,7 @@
 }
 
 ^((\t|\x20)*)\n {
-    std::cout<<"Blank Line"<<std::endl;
+   // std::cout<<"Blank Line"<<std::endl;
 }
 
 ^((("\x20"|"\x9"){4})*) {
@@ -27,7 +27,7 @@
 }
 
 ("\x20"|"\x9")+ {
-    std::cout<<"Un-needed White Space"<<std::endl;
+   // std::cout<<"Un-needed White Space"<<std::endl;
 }
 
 \( {
