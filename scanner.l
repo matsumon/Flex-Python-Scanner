@@ -2,6 +2,7 @@
     #include <iostream>
     #include <stdio.h>
     #include <stdlib.h>
+    #include <string>
 %}
 
 %option yylineno
@@ -141,8 +142,8 @@ False {
     std::cout<<"IDENTIFIER  "<<yytext<<std::endl;
 }
 
-^[0-9]+\.[0-9]+ {
-    std::cout<<"FLOAT   "<<atof(yytext)<<std::endl;
+[0-9]+\.[0-9]+ {
+    std::cout<<"FLOAT   "<<yytext<<std::endl;
 }
 
 [0-9]+ {
