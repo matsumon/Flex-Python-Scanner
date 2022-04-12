@@ -138,7 +138,7 @@ False {
 }
 
 ([a-z]|[A-Z]|_)([a-z]|[A-Z]|[0-9]|_)* {
-    std::cout<<"IDENTIFIER"<<std::endl;
+    std::cout<<"IDENTIFIER  "<<yytext<<std::endl;
 }
 
 ^[0-9]+\.[0-9]+ {
