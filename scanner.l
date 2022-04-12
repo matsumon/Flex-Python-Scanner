@@ -3,6 +3,10 @@
     #include <stdio.h>
     #include <stdlib.h>
     #include <string>
+    #include <ctype.h>
+    #include <string>
+
+    std::string string_to_upper(std::string);
 %}
 
 %option yylineno
@@ -10,16 +14,20 @@
 
 %%
 
-^\n {
-    // std::cout<<"Blank Line"<<std::endl;
-}
-
 ^#(.)*\n {
     // std::cout<<"Comment"<<std::endl;
 }
 
-("\x20"|"\x9"){4} {
+^((\t|\x20)*)\n {
+    std::cout<<"Blank Line"<<std::endl;
+}
+
+^((("\x20"|"\x9"){4})*) {
     std::cout<<"INDENT"<<std::endl;
+}
+
+("\x20"|"\x9")+ {
+    std::cout<<"Un-needed White Space"<<std::endl;
 }
 
 \( {
@@ -38,52 +46,12 @@
     std::cout<<"COLON   "<<yytext<<std::endl;
 }
 
-"\n" {
+"\n"? {
     std::cout<<"NEWLINE "<<std::endl;
 }
 
-and {
-    std::cout<<"AND "<<yytext<<std::endl;
-}
-
-break {
-    std::cout<<"BREAK   "<<yytext<<std::endl;
-}
-
-def {
-    std::cout<<"DEF "<<yytext<<std::endl;
-}
-
-elif {
-    std::cout<<"ELIF    "<<yytext<<std::endl;
-}
-
-else {
-    std::cout<<"ELSE    "<<yytext<<std::endl;
-}
-
-for {
-    std::cout<<"FOR "<<yytext<<std::endl;
-}
-
-if {
-    std::cout<<"IF  "<<yytext<<std::endl;
-}
-
-not {
-    std::cout<<"NOT "<<yytext<<std::endl;
-}
-
-or {
-    std::cout<<"OR  "<<yytext<<std::endl;
-}
-
-return {
-    std::cout<<"RETURN  "<<yytext<<std::endl;
-}
-
-while {
-    std::cout<<"WHILE   "<<yytext<<std::endl;
+and|break|def|elif|else|for|if|not|or|return|while {
+    std::cout<<string_to_upper(yytext)<<"   "<<yytext<<std::endl;
 }
 
 = {
@@ -131,11 +99,11 @@ while {
 }
 
 True {
-    std::cout<<"True    "<<yytext<<std::endl;
+    std::cout<<"True    "<<1<<std::endl;
 }
 
 False {
-    std::cout<<"False   "<<yytext<<std::endl;
+    std::cout<<"False   "<<0<<std::endl;
 }
 
 ([a-z]|[A-Z]|_)([a-z]|[A-Z]|[0-9]|_)* {
@@ -154,6 +122,13 @@ False {
 }
 
 %%
+
+std::string string_to_upper(std::string lower){
+    for(int i=0; i < lower.size(); i++){
+        lower[i]= toupper(lower[i]);
+    }
+    return lower;
+}
 
 int main() {
         return yylex();
