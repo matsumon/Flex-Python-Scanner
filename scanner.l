@@ -9,6 +9,14 @@
 
 %%
 
+^\n {
+    // std::cout<<"Blank Line"<<std::endl;
+}
+
+^#(.)*\n {
+    // std::cout<<"Comment"<<std::endl;
+}
+
 ("\x20"|"\x9"){4} {
     std::cout<<"INDENT"<<std::endl;
 }

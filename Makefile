@@ -13,3 +13,4 @@ new:
 	rm -f scan scanner.cpp
 	flex -o scanner.cpp scanner.l
 	g++ scanner.cpp -o scan
+	./scan
