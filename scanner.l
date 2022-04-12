@@ -119,6 +119,7 @@ False {
 }
 <<EOF>> {
     std::cout<<"END OF FILE"<<std::endl;
+    yyterminate();
 }
 
 %%
@@ -131,5 +132,5 @@ std::string string_to_upper(std::string lower){
 }
 
 int main() {
-        return yylex();
+    return yylex();
 }
