@@ -1,11 +1,37 @@
 %{
     #include <iostream>
+    #include <stdio.h>
+    #include <stdlib.h>
 %}
 
 %option yylineno
 %option noyywrap
 
 %%
+
+("\x20"|"\x9"){4} {
+    std::cout<<"INDENT"<<std::endl;
+}
+
+\( {
+    std::cout<<"LPAREN"<<std::endl;
+}
+
+\) {
+    std::cout<<"RPAREN"<<std::endl;
+}
+
+, {
+    std::cout<<"COMMA"<<std::endl;
+}
+
+: {
+    std::cout<<"COLON"<<std::endl;
+}
+
+"\n" {
+    std::cout<<"NEWLINE"<<std::endl;
+}
 
 and {
     std::cout<<"AND"<<std::endl;
@@ -108,11 +134,11 @@ False {
 }
 
 ^[0-9]+\.[0-9]+ {
-    std::cout<<"FLOAT"<<std::endl;
+    std::cout<<"FLOAT   "<<atof(yytext)<<std::endl;
 }
 
 [0-9]+ {
-    std::cout<<"INTEGER"<<std::endl;
+    std::cout<<"INTEGER "<<atoi(yytext)<<std::endl;
 }
 <<EOF>> {
     std::cout<<"END OF FILE"<<std::endl;
