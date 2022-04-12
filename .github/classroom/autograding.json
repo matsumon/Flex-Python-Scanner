@@ -1,0 +1,54 @@
+{
+  "tests": [
+    {
+      "name": "Set up Flex",
+      "setup": "",
+      "run": "sudo apt-get install -y flex",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "Test scanner on p1.py",
+      "setup": "make",
+      "run": "sh -c \"./scan < testing_code/p1.py\" | diff -wq example_output/p1.out",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "Test scanner on p2.py",
+      "setup": "make",
+      "run": "sh -c \"./scan < testing_code/p2.py\" | diff -wq example_output/p2.out",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "Test scanner on p3.py",
+      "setup": "make",
+      "run": "sh -c \"./scan < testing_code/p3.py\" | diff -wq example_output/p3.out",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    },
+    {
+      "name": "Test scanner on p4.py",
+      "setup": "make",
+      "run": "sh -c \"./scan < testing_code/p4.py\" | diff -wq example_output/p4.out",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
