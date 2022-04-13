@@ -108,11 +108,11 @@ and|break|def|elif|else|for|if|not|or|return|while {
 }
 
 True {
-    std::cout<<"True "<<1<<std::endl;
+    std::cout<<"BOOLEAN "<<1<<std::endl;
 }
 
 False {
-    std::cout<<"False "<<0<<std::endl;
+    std::cout<<"BOOLEAN "<<0<<std::endl;
 }
 
 ([a-z]|[A-Z]|_)([a-z]|[A-Z]|[0-9]|_)* {
