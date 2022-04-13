@@ -7,12 +7,21 @@
     #include <string>
 
     std::string string_to_upper(std::string);
+    int find_white_space(std::string);
+    void manage_stack(int);
+    int stack = 0;
+    int pos = 0;
 %}
 
 %option yylineno
 %option noyywrap
 
 %%
+
+^[^ \t\n].* {
+    manage_stack(find_white_space(yytext));
+    REJECT
+}
 
 ^#(.)*\n {
     // std::cout<<"Comment"<<std::endl;
@@ -22,8 +31,8 @@
    // std::cout<<"Blank Line"<<std::endl;
 }
 
-^((("\x20"|"\x9"){4})*) {
-    std::cout<<"INDENT"<<std::endl;
+^(("\x20"|"\x9")*) {
+    manage_stack(find_white_space(yytext));
 }
 
 ("\x20"|"\x9")+ {
@@ -111,24 +120,61 @@ False {
 }
 
 [0-9]+\.[0-9]+ {
-    std::cout<<"FLOAT "<<yytext<<std::endl;
+    std::cout<<"FLOAT "<<atof(yytext)<<std::endl;
 }
 
 [0-9]+ {
     std::cout<<"INTEGER "<<atoi(yytext)<<std::endl;
 }
+
 <<EOF>> {
     // std::cout<<"END OF FILE"<<std::endl;
+    manage_stack(0);
     yyterminate();
 }
 
 %%
 
 std::string string_to_upper(std::string lower){
-    for(int i=0; i < lower.size(); i++){
+
+   for(int i=0; i < lower.size(); i++){
         lower[i]= toupper(lower[i]);
     }
+
     return lower;
+}
+
+int find_white_space(std::string line){
+   int whitespace = 0;
+
+    for(int i = 0; i < line.size(); i++){
+        if(line[i] == ' ' | line[i] == '\t' ){
+            whitespace++;
+        }
+    }
+
+    return whitespace;
+}
+
+void manage_stack(int whitespace){
+    whitespace = whitespace / 4;
+
+    if(whitespace > stack){
+        for(int i = 0; i < whitespace - stack; i++){
+            std::cout<<"INDENT\n"<<std::endl;
+        }
+        stack = whitespace;
+    }
+    else if (whitespace < stack ){
+
+        for(int i = 0; i < stack - whitespace; i++){
+            std::cout<<"DEDENT\n"<<std::endl;
+        }
+        stack = whitespace;
+    }
+    else{
+        return;
+    }
 }
 
 int main() {
