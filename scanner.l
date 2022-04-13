@@ -161,14 +161,14 @@ void manage_stack(int whitespace){
 
     if(whitespace > stack){
         for(int i = 0; i < whitespace - stack; i++){
-            std::cout<<"INDENT\n"<<std::endl;
+            std::cout<<"INDENT"<<std::endl;
         }
         stack = whitespace;
     }
     else if (whitespace < stack ){
 
         for(int i = 0; i < stack - whitespace; i++){
-            std::cout<<"DEDENT\n"<<std::endl;
+            std::cout<<"DEDENT"<<std::endl;
         }
         stack = whitespace;
     }
